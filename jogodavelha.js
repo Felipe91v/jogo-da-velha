@@ -31,6 +31,7 @@ document.getElementById("player").appendChild(img)
 function jogada(){ 
    play(vez)
     let casa = document.getElementById(this.id)
+    if( this.getElementsByTagName("img").length == 0){
     let imagem = document.createElement("img")    
     if(vez%2==0){
       casa.setAttribute("jogada","x")      
@@ -39,7 +40,10 @@ function jogada(){
         casa.setAttribute("jogada","o")
        imagem.src="bola.png" 
     } 
-    document.getElementById(this.id).appendChild(imagem)
+      document.getElementById(this.id).appendChild(imagem)
+    }else {alert("casa ja preenchida")
+    vez = vez-1
+    play(vez)}
     vencedor()
     vez++
       }
